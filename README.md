@@ -4,7 +4,7 @@
 ## Description
  - Un petit jeu 2D avec la librairie graphique de 42 : la MiniLibX
  - Choix 
- - Page 4/11
+ - Page 6/11
 
 ## Keywords
  - programmation graphique

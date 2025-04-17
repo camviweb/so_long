@@ -24,9 +24,6 @@
 - [ ] all functions of the math library (-lm compiler option, man man 3 math)
 - [ ] functions of the mlx : the version on the school machines or by installing it using its sources
 - [ ] ft_printf
-- [ ] minilibx-linux.tgz
-- [ ] minilibx_opengl.tgz
-- [ ] minilibx_mms_20200219_beta.tgz
 - [ ] https://itch.io/game-assets/free/tag-sprites
 - [ ] In any case, ensure that you respect other people’s work -> mention ?
 - [ ] tool to open (and close ?) a window, create images and deal with keyboard and mouse events
@@ -43,7 +40,11 @@
 - [ ] norminette
 - [ ] ? testeurs ?
 - [ ] valgrind !!
-- [ ] file names/git repo
+- [ ] file names/git repo : Makefile, *.h, *.c, maps, textures
 - [ ] (guidelines -> tests)
 
 ## Utilisation
+### Installer la mlx
+```bash
+cd minilibx && ./configure
+```

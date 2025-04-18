@@ -1,8 +1,8 @@
 #include "so_long.h"
 
-int	rgb(int r, int g, int b)
+int	create_trgb(int t, int r, int g, int b)
 {
-	return ((r << 16) | (g << 8) | b);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 void	draw_horizontal_gradient(t_data *img, int x, int y, int width,
@@ -16,7 +16,7 @@ void	draw_horizontal_gradient(t_data *img, int x, int y, int width,
 	{
 		red = 255 - (i * 255 / width);
 		blue = (i * 255 / width);
-		color = rgb(red, 0, blue);
+		color = create_trgb(0, red, 0, blue);
 		for (int j = 0; j < height; j++)
 			my_mlx_pixel_put(img, x + i, y + j, color);
 	}
@@ -36,8 +36,28 @@ void	draw_rainbow(t_data *img, int x, int y, int width)
 		r = (int)(9 * (1 - t) * t * t * t * 255);
 		g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
 		b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
-		color = rgb(r, g, b);
+		color = create_trgb(t, r, g, b);
 		for (int j = 0; j < 50; j++)
 			my_mlx_pixel_put(img, x + i, y + j, color);
 	}
+}
+
+int	get_t(int trgb)
+{
+	return ((trgb >> 24) & 0xFF);
+}
+
+int	get_r(int trgb)
+{
+	return ((trgb >> 16) & 0xFF);
+}
+
+int	get_g(int trgb)
+{
+	return ((trgb >> 8) & 0xFF);
+}
+
+int	get_b(int trgb)
+{
+	return (trgb & 0xFF);
 }

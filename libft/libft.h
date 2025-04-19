@@ -17,6 +17,15 @@
 # include <stdlib.h> // exit, free, malloc
 # include <unistd.h> // write, read
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# if BUFFER_SIZE > 8000000
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 8000000
+# endif
+
 typedef struct s_list
 {
 	void			*content;
@@ -59,6 +68,13 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
+// partie bonus
+t_list				*ft_lstnew(void *content);
+void				ft_lstadd_front(t_list **lst, t_list *new);
+int					ft_lstsize(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+
 // ft_printf
 int					ft_printf(const char *s, ...);
 int					ft_putchar(char c);
@@ -70,14 +86,16 @@ int					ft_putx(unsigned int n, char c);
 int					do_format(const char *s, va_list args, int i);
 int					handle_pointer_null(unsigned long long adr);
 
+// get_next_line
+char	*get_next_line(int fd);
+int		has_newline(char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_before_newline(const char *s);
+char	*get_after_newline(const char *s);
+void	ft_read(int fd, char **rest, char **tmp);
+void	ft_free(char **str, char **str2, char **str3);
+
 // others
 long				ft_atol(const char *str);
-
-// Partie bonus
-t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-int					ft_lstsize(t_list *lst);
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif

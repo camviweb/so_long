@@ -44,7 +44,7 @@ static	int	get_lil_len(const char *s, char c)
 	return (lil_len);
 }
 
-static	char	**ft_free(char **new)
+static	char	**ft_free_split(char **new)
 {
 	char	**temp;
 
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		new[i] = ft_substr(s, 0, get_lil_len(s, c));
 		if (!new[i])
-			return (ft_free(new));
+			return (ft_free_split(new));
 		s += get_lil_len(s, c);
 		i++;
 	}

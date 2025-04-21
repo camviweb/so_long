@@ -3,8 +3,8 @@
 
 ## Description
  - Un petit jeu 2D avec la librairie graphique de 42 : la MiniLibX
- - Un petit chat (character) part d'une piece (=map) apres avoir mange quelques steaks (collectible). 
- - Page 7/12
+ - Vous etes un chat qui arrivait d'un carton et vous devez partir de la piece apres avoir mange tous les steaks, en moins de coups possible. 
+ - Page 12/12
 
 ## Keywords
  - programmation graphique
@@ -13,11 +13,9 @@
 - [ ] perror -> gestion des erreurs 
 - [ ] strerror
 - [ ] all functions of the math library (-lm compiler option, man man 3 math)
-- [ ] mlx_pixel_put.c -> my_mlx_pixel_put.c
 - [ ] mlx_mouse_hook.c
 - [ ] mlx_key_hook.c
 - [ ] mlx_expose_hook.c
-- [ ] mlx_loop_hook.c
 - [ ] mlx_int_anti_resize_win.c
 - [ ] mlx_int_do_nothing.c
 - [ ] mlx_int_wait_first_expose.c
@@ -29,7 +27,6 @@
 - [ ] mlx_clear_window.c
 - [ ] mlx_xpm.c
 - [ ] mlx_int_str_to_wordtab.c
-- [ ] mlx_destroy_window.c
 - [ ] mlx_int_param_event.c
 - [ ] mlx_int_set_win_event_mask.c
 - [ ] mlx_hook.c
@@ -39,10 +36,15 @@
 - [ ] mlx_screen_size.c
 - [ ] mlx_destroy_display.c
 - [ ] **tiles** et **tilesets**
-- [ ] display **sprites** et **sprite sheets**
-- [ ] ? fermer fenetre ?
-- [ ] the bytes are not aligned, this means that the line_length differs from the actual window width. We therefore should ALWAYS calculate the memory offset using the line length. We can calculate it by using the following formula: int offset = (y * line_length + x * (bits_per_pixel / 8));
+- [ ] Pressing ESC must close the window and quit the program in a clean way
 - [ ] Game Logic (loop) : Implement movement, collision detection, and scoring, fin du jeu
+- [ ] The W, A, S, and D keys must be used to move the cat
+- [ ] The cat should be able to move in these four directions: up, down, left, and right.
+- [ ] The cat should not be able to move into walls.
+- [ ] At every move, the current number of movements must be displayed in the shell
+- [ ] not have to be in real time
+- [ ] Window management must remain smooth (switching to another window, minimizing)
+- [ ] verify if there is a valid path in the map
 
 ## To test
 - [ ] make fclean
@@ -57,4 +59,14 @@
 ### Installer la mlx
 ```bash
 cd minilibx && make
+```
+
+### Compilation
+```bash
+cd .. && make
+```
+
+### Execution avec map.ber, ou autre map
+```bash
+./so_long map/map.ber
 ```

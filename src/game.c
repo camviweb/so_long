@@ -2,5 +2,5 @@
 
 void	game_init(t_game *game, char *mapfile)
 {
-    game->map.mapfile = mapfile;
+	game->map.mapfile = mapfile;
 }

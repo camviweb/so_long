@@ -3,12 +3,12 @@
 
 typedef struct s_img
 {
-	void		*img;
-	char		*adr;
-	int			bits_per_pixel;
+	void	*img;
+	char	*adr;
+	int		bits_per_pixel;
 	int line_length; // ?
 	int endian;      // ?
-}				t_img;
+}			t_img;
 
 typedef struct s_point
 {
@@ -34,8 +34,8 @@ typedef struct s_map
 {
 	char		*mapfile;
 	int			fd;
-	int			height;
 	int			width;
+	int			height;
 	char		**tab;
 	int			start_nb;
 	int			exit_nb;
@@ -58,10 +58,9 @@ typedef struct s_game
 	t_sprite	steak;
 	t_sprite	exit;
 	t_sprite	bg;
-	// t_sprite	yw_sp;
+	int			end;
+	int			move_nb;
 	// t_sprite	*digits_sp;
-	// BOOL		won;
-	// int			moves;
 	// int			collected;
 	// BOOL		exit_unlocked;
 }				t_game;

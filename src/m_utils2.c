@@ -2,21 +2,20 @@
 
 void	print_tab(t_map *map)
 {
-	int	i;
-	int	j;
+	t_point	a;
 
-	i = 0;
-	j = 0;
-	while (i < map->height)
+	a.y = 0;
+	a.x = 0;
+	while (a.y < map->height)
 	{
-		while (j < map->width)
+		while (a.x < map->width)
 		{
-			ft_printf("%c", map->tab[i][j]);
-			j++;
+			ft_printf("%c", map->tab[a.y][a.x]);
+			a.x++;
 		}
 		write(1, "\n", 1);
-		j = 0;
-		i++;
+		a.x = 0;
+		a.y++;
 	}
 }
 
@@ -38,8 +37,8 @@ void	print_s_map(t_map *map)
 {
 	ft_printf("mapfile : %s\n", map->mapfile);
 	ft_printf("fd : %d\n", map->fd);
-	ft_printf("height : %d\n", map->height);
 	ft_printf("width : %d\n", map->width);
+	ft_printf("height : %d\n", map->height);
 	print_tab(map);
 	ft_printf("start_nb : %d\n", map->start_nb);
 	ft_printf("exit_nb : %d\n", map->exit_nb);
@@ -48,27 +47,26 @@ void	print_s_map(t_map *map)
 
 int	is_closed(t_map *map)
 {
-	int	y;
-	int	x;
+	t_point	a;
 
-	x = 0;
-	y = 0;
-	while (x < map->height)
+	a.y = 0;
+	a.x = 0;
+	while (a.y < map->height)
 	{
-		if (map->tab[x][y] != '1')
+		if (map->tab[a.y][a.x] != '1')
 			return (1);
-		if (map->tab[x][map->width - 1] != '1')
+		if (map->tab[a.y][map->width - 1] != '1')
 			return (1);
-		x++;
+		a.y++;
 	}
-	x = 0;
-	while (y < map->width)
+	a.y = 0;
+	while (a.x < map->width)
 	{
-		if (map->tab[x][y] != '1')
+		if (map->tab[a.y][a.x] != '1')
 			return (1);
-		if (map->tab[map->height - 1][y] != '1')
+		if (map->tab[map->height - 1][a.x] != '1')
 			return (1);
-		y++;
+		a.x++;
 	}
 	return (0);
 }
@@ -84,7 +82,7 @@ void	tile_check(t_map *map)
 	if (map->exit_nb > 1)
 		m_error("La map a plusieurs sorties :/");
 	if (map->steak_nb == 0)
-		m_error("La map doit avoir une croquette !!!");
+		m_error("La map doit avoir au moins un steak !!!");
 	// if (!vars->map.exit_accessible)
 	// 	map_error("No valid path to exit.");
 	// if (vars->map.accessible_collectibles != vars->collectibles)

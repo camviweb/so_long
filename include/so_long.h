@@ -3,27 +3,7 @@
 # include "../libft/libft.h"
 # include "structure.h"
 # include <fcntl.h> // open
-# include <math.h>
 # include <mlx.h>
-
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-
-// form
-void	draw_square(t_img *img, int x, int y, int size, int color);
-void	draw_circle(t_img *img, int x_center, int y_center, int radius,
-			int color);
-void	draw_triangle(t_img *img, int x, int y, int size, int color);
-void	draw_hexagon(t_img *img, int x_center, int y_center, int size,
-			int color);
-
-// color
-int		create_trgb(int t, int r, int g, int b);
-void	draw_horizontal_gradient(t_img *img, int x, int y, int width,
-			int height);
-void	draw_rainbow(t_img *img, int x, int y, int width);
-
-// texture
-void	draw_checkerboard(t_img *img, int width, int height, int size);
 
 // m_utils1
 void	map_check(t_map *map);
@@ -40,8 +20,16 @@ int		is_closed(t_map *map);
 void	tile_check(t_map *map);
 
 // s_utils1
+void	sprite_init(t_game *game);
+void	bg_print(t_game *game);
+void	map_print(t_game *game);
+void	cat_print(t_game *game);
+int		all_print(t_game *game);
 
 // game
 void	game_init(t_game *game, char *mapfile);
+
+// event
+int		close_win(t_game *game);
 
 #endif

@@ -10,22 +10,18 @@ MLX		=-Lminilibx-linux -lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
 CC		=cc $(CFLAGS)
 
 SRC 	=$(SRCD)/main.c \
-$(SRCD)/form.c \
-$(SRCD)/color.c \
-$(SRCD)/texture.c \
 $(SRCD)/m_utils1.c \
 $(SRCD)/m_utils2.c \
 $(SRCD)/s_utils1.c \
-$(SRCD)/game.c
+$(SRCD)/game.c \
+$(SRCD)/event.c
 
 OBJ		=$(OBJD)/main.o \
-$(OBJD)/form.o \
-$(OBJD)/color.o \
-$(OBJD)/texture.o \
 $(OBJD)/m_utils1.o \
 $(OBJD)/m_utils2.o \
 $(OBJD)/s_utils1.o \
-$(OBJD)/game.o
+$(OBJD)/game.o \
+$(OBJD)/event.o
 
 LIBFT	=$(LIBFTD)/libft.a
 

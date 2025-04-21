@@ -1,7 +1,5 @@
 #include "so_long.h"
 
-// void check_map(const char *filename, t_game *game);
-
 void	map_check(t_map *map)
 {
 	int		fd;
@@ -10,8 +8,8 @@ void	map_check(t_map *map)
 	fd = open(map->mapfile, O_RDONLY);
 	if (fd < 0)
 		m_error("Fichier introuvable :/");
-	map->height = 0;
 	map->width = 0;
+	map->height = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -29,6 +27,7 @@ void	map_check(t_map *map)
 
 void	m_error(char *s)
 {
+	write(1, "Error\n", 6);
 	ft_printf("%s\n", s);
 	exit(1);
 }
@@ -65,19 +64,17 @@ void	map_init(t_game *game)
 	line = get_next_line(game->map.fd);
 	while (line)
 	{
-		// map->width - 1 ??
-		game->map.tab[pos.x] = malloc(game->map.width * sizeof(char));
-		while (pos.y < game->map.width)
+		game->map.tab[pos.y] = malloc(game->map.width * sizeof(char));
+		while (pos.x < game->map.width)
 		{
-			game->map.tab[pos.x][pos.y] = line[pos.y];
-			tile_count(game, game->map.tab[pos.x][pos.y] = line[pos.y], pos);
-			pos.y++;
+			game->map.tab[pos.y][pos.x] = line[pos.x];
+			tile_count(game, game->map.tab[pos.y][pos.x], pos);
+			pos.x++;
 		}
-		pos.x++;
-		pos.y = 0;
+		pos.x = 0;
+		pos.y++;
 		line = get_next_line(game->map.fd);
 	}
-	print_s_map(&game->map);
 	close(game->map.fd);
 	if (is_closed(&game->map))
 		m_error("La map doit etre fermee !!!");

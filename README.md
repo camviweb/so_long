@@ -12,15 +12,6 @@
 ## To use
 - [ ] perror, strerror -> gestion des erreurs 
 - [ ] all functions of the math library (-lm compiler option, man man 3 math)
-- [ ] **tiles** et **tilesets**
-- [ ] Pressing ESC must close the window and quit the program in a clean way
-- [ ] Game Logic (loop) : Implement movement, collision detection, and scoring, fin du jeu
-- [ ] The W, A, S, and D keys must be used to move the cat
-- [ ] The cat should be able to move in these four directions: up, down, left, and right.
-- [ ] The cat should not be able to move into walls.
-- [ ] At every move, the current number of movements must be displayed in the shell
-- [ ] not have to be in real time
-- [ ] Window management must remain smooth (switching to another window, minimizing)
 - [ ] verify if there is a valid path in the map
 
 ## To test

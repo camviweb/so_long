@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_utils2.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: canguyen <canguyen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/03 14:39:31 by canguyen          #+#    #+#             */
+/*   Updated: 2025/05/03 14:39:35 by canguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	print_tab(t_map *map)
@@ -76,7 +88,10 @@ void	tile_check(t_map *map)
 	if (map->start_nb == 0)
 		m_error("La map doit avoir un debut !!!");
 	if (map->start_nb > 1)
+	{
+		print_s_map(map);
 		m_error("La map a plusieurs debuts :/");
+	}
 	if (map->exit_nb == 0)
 		m_error("La map doit avoir une sortie !!!");
 	if (map->exit_nb > 1)

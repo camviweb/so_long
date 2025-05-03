@@ -58,11 +58,12 @@ typedef struct s_game
 	t_sprite	steak;
 	t_sprite	exit;
 	t_sprite	bg;
+	t_sprite	yw;
 	int			end;
 	int			move_nb;
 	// t_sprite	*digits_sp;
-	// int			collected;
-	// BOOL		exit_unlocked;
+	int			steak_won;
+	int		exit_is_open;
 }				t_game;
 
 #endif

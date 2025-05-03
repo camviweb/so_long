@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_utils1.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: canguyen <canguyen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/03 14:39:24 by canguyen          #+#    #+#             */
+/*   Updated: 2025/05/03 14:39:26 by canguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	map_check(t_map *map)
@@ -18,8 +30,10 @@ void	map_check(t_map *map)
 			map->width = linelen(line);
 		if (linelen(line) != map->width)
 			m_error("La map doit etre rectangulaire !!!");
+		ft_free(&line, 0, 0);
 		line = get_next_line(fd);
 	}
+	ft_free(&line, 0, 0);
 	close(fd);
 	if (map->height == 0)
 		m_error("La map est vide :/");
@@ -73,8 +87,10 @@ void	map_init(t_game *game)
 		}
 		pos.x = 0;
 		pos.y++;
+		ft_free(&line, 0, 0);
 		line = get_next_line(game->map.fd);
 	}
+	ft_free(&line, 0, 0);
 	close(game->map.fd);
 	if (is_closed(&game->map))
 		m_error("La map doit etre fermee !!!");

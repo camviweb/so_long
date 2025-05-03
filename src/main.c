@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: canguyen <canguyen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/03 14:39:49 by canguyen          #+#    #+#             */
+/*   Updated: 2025/05/03 14:39:50 by canguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	main(int argc, char **argv)
@@ -20,8 +32,10 @@ int	main(int argc, char **argv)
 			* 50);
 	game.img.adr = mlx_get_data_addr(game.img.img, &game.img.bits_per_pixel,
 			&game.img.line_length, &game.img.endian);
-	sprite_init(&game);
-	mlx_hook(game.win, 17, 1L << 0, close_win, &game);
+	texture_init(&game);
+	mlx_hook(game.win, 17, 0, close_win, &game);
+	mlx_key_hook(game.win, key_event, &game);
+	bg_print(&game);
 	mlx_loop_hook(game.mlx, all_print, &game);
 	mlx_loop(game.mlx);
 	return (0);

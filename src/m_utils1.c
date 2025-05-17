@@ -75,10 +75,10 @@ void	map_init(t_game *game)
 	line = get_next_line(game->map.fd);
 	while (line)
 	{
-		game->map.tab[pos.y] = malloc(game->map.width * sizeof(char));
+		line_alloc(game, pos);
 		while (pos.x < game->map.width)
 		{
-			game->map.tab[pos.y][pos.x] = line[pos.x];
+			fill_tabs(game, line, pos);
 			tile_count(game, game->map.tab[pos.y][pos.x], pos);
 			pos.x++;
 		}
@@ -91,6 +91,6 @@ void	map_init(t_game *game)
 	close(game->map.fd);
 	if (is_closed(&game->map))
 		m_error("La map doit etre fermee !!!");
-	// valid_path_checker(game->cat.pos, game);
+	valid_path_checker(game->cat.pos, game);
 	tile_check(&game->map);
 }

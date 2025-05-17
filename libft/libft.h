@@ -87,13 +87,13 @@ int					do_format(const char *s, va_list args, int i);
 int					handle_pointer_null(unsigned long long adr);
 
 // get_next_line
-char	*get_next_line(int fd);
-int		has_newline(char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*get_before_newline(const char *s);
-char	*get_after_newline(const char *s);
-void	ft_read(int fd, char **rest, char **tmp);
-void	ft_free(char **str, char **str2, char **str3);
+char				*get_next_line(int fd);
+int					has_newline(char *str);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*get_before_newline(const char *s);
+char				*get_after_newline(const char *s);
+void				ft_read(int fd, char **rest, char **tmp);
+void				ft_free(char **str, char **str2, char **str3);
 
 // others
 long				ft_atol(const char *str);

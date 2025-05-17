@@ -38,13 +38,13 @@ void	bg_print(t_game *game)
 	a.x = 0;
 	a.y = 0;
 	m.x = game->map.width * 50;
-	// ft_printf("%d\n", game->map.width);
 	m.y = game->map.height * 50;
 	while (a.x < m.x)
 	{
 		while (a.y < m.y)
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->bg.img, a.x, a.y);
+			mlx_put_image_to_window(game->mlx, game->win, \
+				game->bg.img, a.x, a.y);
 			a.y += 50;
 		}
 		a.y = 0;
@@ -62,27 +62,7 @@ void	map_print(t_game *game)
 	{
 		while (a.y < game->map.height * 50)
 		{
-			if (game->map.tab[a.y / 50][a.x / 50] == '1')
-				mlx_put_image_to_window(game->mlx, game->win, game->wall.img, \
-					a.x, a.y);
-			else if (game->map.tab[a.y / 50][a.x / 50] == 'P'
-					&& (game->cat.pos.x != a.x / 50 || game->cat.pos.y != a.y
-						/ 50))
-				mlx_put_image_to_window(game->mlx, game->win, game->start.img, \
-					a.x, a.y);
-			else if (game->map.tab[a.y / 50][a.x / 50] == 'C')
-				mlx_put_image_to_window(game->mlx, game->win, game->steak.img, \
-					a.x, a.y);
-			else if (game->map.tab[a.y / 50][a.x / 50] == 'E'
-					&& (game->cat.pos.x != a.x / 50 || game->cat.pos.y != a.y
-						/ 50))
-				mlx_put_image_to_window(game->mlx, game->win, game->exit.img, \
-					a.x, a.y);
-			else if ((game->map.tab[a.y / 50][a.x / 50] == '0')
-					&& (game->cat.pos.x != a.x / 50 || game->cat.pos.y != a.y
-						/ 50))
-				mlx_put_image_to_window(game->mlx, game->win, game->bg.img, a.x, \
-					a.y);
+			print_tail_at(game, a);
 			a.y += 50;
 		}
 		a.y = 0;
@@ -92,7 +72,8 @@ void	map_print(t_game *game)
 
 void	cat_print(t_game *game)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->cat_sp.img, game->cat.pos.x * 50, game->cat.pos.y * 50);
+	mlx_put_image_to_window(game->mlx, game->win, game->cat_sp.img, \
+		game->cat.pos.x * 50, game->cat.pos.y * 50);
 }
 
 int	all_print(t_game *game)
@@ -112,7 +93,8 @@ int	all_print(t_game *game)
 		{
 			while (a.y < game->map.height * 50)
 			{
-				mlx_put_image_to_window(game->mlx, game->win, game->yw.img, a.x, a.y);
+				mlx_put_image_to_window(game->mlx, game->win, \
+					game->yw.img, a.x, a.y);
 				a.y += 50;
 			}
 			a.y = 0;

@@ -15,6 +15,7 @@ $(SRCD)/m_utils1.c \
 $(SRCD)/m_utils2.c \
 $(SRCD)/m_utils3.c \
 $(SRCD)/s_utils1.c \
+$(SRCD)/s_utils2.c \
 $(SRCD)/game.c \
 $(SRCD)/event.c
 
@@ -23,6 +24,7 @@ $(OBJD)/m_utils1.o \
 $(OBJD)/m_utils2.o \
 $(OBJD)/m_utils3.o \
 $(OBJD)/s_utils1.o \
+$(OBJD)/s_utils2.o \
 $(OBJD)/game.o \
 $(OBJD)/event.o
 

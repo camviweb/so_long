@@ -36,7 +36,6 @@ void	tile_count(t_game *game, char c, t_point pos)
 	if (c == 'P')
 	{
 		game->map.start_nb++;
-		game->cat.start = pos;
 		game->cat.pos = pos;
 	}
 	else if (c == 'E')
@@ -95,8 +94,8 @@ void	tile_check(t_map *map)
 		m_error("La map a plusieurs sorties :/");
 	if (map->steak_nb == 0)
 		m_error("La map doit avoir au moins un steak !!!");
-	// if (!map->available_exit)
-	// 	m_error("La sortie est inacessible :/");
-	// if (map->available_steaks != map->steak_nb)
-	// 	m_error("Il n'y a pas de chemins pour recuperer tous les steaks :/");
+	if (!map->available_exit)
+		m_error("La sortie est inacessible :/");
+	if (map->available_steaks != map->steak_nb)
+		m_error("Il n'y a pas de chemins pour recuperer tous les steaks :/");
 }

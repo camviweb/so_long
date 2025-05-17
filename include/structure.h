@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structure.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: canguyen <canguyen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/03 14:47:48 by canguyen          #+#    #+#             */
+/*   Updated: 2025/05/03 14:47:50 by canguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCTURE_H
 # define STRUCTURE_H
 
 typedef struct s_img
 {
-	void	*img;
-	char	*adr;
-	int		bits_per_pixel;
-	int line_length; // ?
-	int endian;      // ?
-}			t_img;
+	void		*img;
+	char		*adr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}				t_img;
 
 typedef struct s_point
 {
@@ -19,8 +31,6 @@ typedef struct s_point
 typedef struct s_cat
 {
 	t_point		pos;
-	t_point		start;
-	// t_sprite	sprite;
 }				t_cat;
 
 typedef struct s_sprite
@@ -37,12 +47,12 @@ typedef struct s_map
 	int			width;
 	int			height;
 	char		**tab;
+	char		**tab2;
 	int			start_nb;
 	int			exit_nb;
 	int			steak_nb;
-	// t_tile		**tiles;
-	// int			exit_accessible;
-	// int			accessible_collectibles;
+	int			available_exit;
+	int			available_steaks;
 }				t_map;
 
 typedef struct s_game
@@ -61,9 +71,8 @@ typedef struct s_game
 	t_sprite	yw;
 	int			end;
 	int			move_nb;
-	// t_sprite	*digits_sp;
 	int			steak_won;
-	int		exit_is_open;
+	int			exit_is_open;
 }				t_game;
 
 #endif

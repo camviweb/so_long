@@ -18,6 +18,8 @@ void	game_init(t_game *game, char *mapfile)
 	game->map.start_nb = 0;
 	game->map.exit_nb = 0;
 	game->map.steak_nb = 0;
+	game->map.available_exit = 0;
+	game->map.available_steaks = 0;
 	game->end = 0;
 	game->move_nb = 0;
 	game->steak_won = 0;

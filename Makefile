@@ -4,9 +4,10 @@ INCD	=include
 SRCD	=src
 OBJD	=obj
 LIBFTD	=libft
+MLXD	=minilibx-linux
 
 CFLAGS	=-Wall -Wextra -Werror
-MLX		=-Lminilibx-linux -lmlx -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz
+MLX		=-L$(MLXD) -lmlx -L/usr/lib -I$(MLXD) -lXext -lX11 -lm -lz
 CC		=cc $(CFLAGS)
 
 SRC 	=$(SRCD)/main.c \
@@ -26,14 +27,15 @@ $(OBJD)/game.o \
 $(OBJD)/event.o
 
 LIBFT	=$(LIBFTD)/libft.a
+LIBMLX		=$(MLXD)/libmlx.a
 
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJ) $(LIBFT) $(LIBMLX)
 	$(CC) $(OBJ) -L$(LIBFTD) -lft -I$(INCD) $(MLX) -o $@
 
 $(OBJD)/%.o: $(SRCD)/%.c | $(OBJD)
-	$(CC) -I/usr/include -Iminilibx-linux -O3 -I$(INCD) -o $@ -c $<
+	$(CC) -I/usr/include -I$(MLXD) -O3 -I$(INCD) -o $@ -c $<
 
 $(OBJD):
 	mkdir -p $(OBJD)
@@ -41,13 +43,18 @@ $(OBJD):
 $(LIBFT):
 	make -C $(LIBFTD)
 
+$(LIBMLX):
+	make -C $(MLXD)
+
 clean: 
 	rm -rf $(OBJD)
 	make -C $(LIBFTD) clean
+	make -C $(MLXD) clean
 
 fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFTD) fclean
+	make -C $(MLXD) clean
 
 re: fclean all
 

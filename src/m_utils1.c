@@ -71,10 +71,7 @@ void	map_init(t_game *game)
 	t_point	pos;
 	char	*line;
 
-	game->map.fd = open(game->map.mapfile, O_RDONLY);
-	game->map.tab = malloc(game->map.height * sizeof(char *));
-	pos.x = 0;
-	pos.y = 0;
+	map_init_helper(game, &pos);
 	line = get_next_line(game->map.fd);
 	while (line)
 	{
@@ -94,33 +91,6 @@ void	map_init(t_game *game)
 	close(game->map.fd);
 	if (is_closed(&game->map))
 		m_error("La map doit etre fermee !!!");
+	// valid_path_checker(game->cat.pos, game);
 	tile_check(&game->map);
 }
-
-// int	fill_grid(t_vars *vars)
-// {
-// 	// t_point g_pos;
-// 	// char *line;
-
-// 	// initiate_map_filling(vars, &g_pos);
-// 	// line = get_next_line(vars->map.fd);
-// 	while (line)
-// 	{
-// 		allocate_line(vars, g_pos);
-// 		while (g_pos.px_x < vars->map.g_w)
-// 		{
-// 			fill_tiles(vars, line, g_pos);
-// 			// count_grid(vars, vars->map.grid[g_pos.px_y][g_pos.px_x], g_pos);
-// 			// g_pos.px_x++;
-// 		}
-// 		// g_pos.px_x = 0;
-// 		// g_pos.px_y++;
-// 		// line = get_next_line(vars->map.fd);
-// 	}
-// 	// close(vars->map.fd);
-// 	// if (walls_error(vars))
-// 	// 	map_error("Map not enclosed in walls.");
-// 	check_path(vars->player.pos, vars);
-// 	check_map(vars);
-// 	return (1);
-// }

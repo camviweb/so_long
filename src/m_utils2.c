@@ -88,18 +88,15 @@ void	tile_check(t_map *map)
 	if (map->start_nb == 0)
 		m_error("La map doit avoir un debut !!!");
 	if (map->start_nb > 1)
-	{
-		print_s_map(map);
 		m_error("La map a plusieurs debuts :/");
-	}
 	if (map->exit_nb == 0)
 		m_error("La map doit avoir une sortie !!!");
 	if (map->exit_nb > 1)
 		m_error("La map a plusieurs sorties :/");
 	if (map->steak_nb == 0)
 		m_error("La map doit avoir au moins un steak !!!");
-	// if (!vars->map.exit_accessible)
-	// 	map_error("No valid path to exit.");
-	// if (vars->map.accessible_collectibles != vars->collectibles)
-	// 	map_error("No path to all collectibles.");
+	// if (!map->available_exit)
+	// 	m_error("La sortie est inacessible :/");
+	// if (map->available_steaks != map->steak_nb)
+	// 	m_error("Il n'y a pas de chemins pour recuperer tous les steaks :/");
 }

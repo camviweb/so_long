@@ -16,22 +16,15 @@
 
 ## To test
 - [ ] make fclean
-- [ ] headers 42
 - [ ] norminette
-- [ ] ? testeurs ?
 - [ ] valgrind !!
 - [ ] file names/git repo : Makefile, *.h, *.c, maps, textures
 - [ ] (guidelines -> tests)
 
 ## Utilisation
-### Installer la mlx
-```bash
-cd minilibx && make
-```
-
 ### Compilation
 ```bash
-cd .. && make
+make
 ```
 
 ### Execution avec map.ber, ou autre map

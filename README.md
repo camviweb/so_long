@@ -9,18 +9,6 @@
 ## Keywords
  - programmation graphique
 
-## To use
-- [ ] perror, strerror -> gestion des erreurs 
-- [ ] all functions of the math library (-lm compiler option, man man 3 math)
-- [ ] verify if there is a valid path in the map
-
-## To test
-- [ ] make fclean
-- [ ] norminette
-- [ ] valgrind !!
-- [ ] file names/git repo : Makefile, *.h, *.c, maps, textures
-- [ ] (guidelines -> tests)
-
 ## Utilisation
 ### Compilation
 ```bash

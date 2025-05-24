@@ -23,6 +23,7 @@ void	game_init(t_game *game, char *mapfile)
 	game->end = 0;
 	game->move_nb = 0;
 	game->steak_won = 0;
+	game->exit_is_open = 0;
 }
 
 void	update_cat_pos(t_game *game, t_point pos)

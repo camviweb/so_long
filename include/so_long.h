@@ -29,14 +29,17 @@ void	print_tab(t_map *map);
 void	tile_count(t_game *game, char c, t_point pos);
 void	print_s_map(t_map *map);
 int		is_closed(t_map *map);
-void	tile_check(t_map *map);
+void	tile_check(t_game *game);
 
 // m_utils3
 void	free_tile(t_game *game);
-void	map_init_helper(t_game *game, t_point *pos);
+void	map_init_helper(t_game *game);
 void	valid_path_checker(t_point pos, t_game *game);
-void	fill_tabs(t_game *game, char *line, t_point pos);
+void	fill_tabs(t_game *game, char **line, t_point pos);
 void	line_alloc(t_game *game, t_point pos);
+
+// m_utils4
+void	m_error_with_tab(char *s, t_game *game);
 
 // s_utils1
 void	texture_init(t_game *game);

@@ -71,14 +71,14 @@ void	map_init(t_game *game)
 	t_point	pos;
 	char	*line;
 
-	map_init_helper(game, &pos);
+	map_init_helper(game);
 	line = get_next_line(game->map.fd);
 	while (line)
 	{
 		line_alloc(game, pos);
 		while (pos.x < game->map.width)
 		{
-			fill_tabs(game, line, pos);
+			fill_tabs(game, &line, pos);
 			tile_count(game, game->map.tab[pos.y][pos.x], pos);
 			pos.x++;
 		}
@@ -90,7 +90,7 @@ void	map_init(t_game *game)
 	ft_free(&line, 0, 0);
 	close(game->map.fd);
 	if (is_closed(&game->map))
-		m_error("La map doit etre fermee !!!");
+		m_error_with_tab("La map doit etre fermee !!!", game);
 	valid_path_checker(game->cat.pos, game);
-	tile_check(&game->map);
+	tile_check(game);
 }

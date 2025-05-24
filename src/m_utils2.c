@@ -82,20 +82,21 @@ int	is_closed(t_map *map)
 	return (0);
 }
 
-void	tile_check(t_map *map)
+void	tile_check(t_game *game)
 {
-	if (map->start_nb == 0)
-		m_error("La map doit avoir un debut !!!");
-	if (map->start_nb > 1)
-		m_error("La map a plusieurs debuts :/");
-	if (map->exit_nb == 0)
-		m_error("La map doit avoir une sortie !!!");
-	if (map->exit_nb > 1)
-		m_error("La map a plusieurs sorties :/");
-	if (map->steak_nb == 0)
-		m_error("La map doit avoir au moins un steak !!!");
-	if (!map->available_exit)
-		m_error("La sortie est inacessible :/");
-	if (map->available_steaks != map->steak_nb)
-		m_error("Il n'y a pas de chemins pour recuperer tous les steaks :/");
+	if (game->map.start_nb == 0)
+		m_error_with_tab("La map doit avoir un debut !!!", game);
+	if (game->map.start_nb > 1)
+		m_error_with_tab("La map a plusieurs debuts :/", game);
+	if (game->map.exit_nb == 0)
+		m_error_with_tab("La map doit avoir une sortie !!!", game);
+	if (game->map.exit_nb > 1)
+		m_error_with_tab("La map a plusieurs sorties :/", game);
+	if (game->map.steak_nb == 0)
+		m_error_with_tab("La map doit avoir au moins un steak !!!", game);
+	if (!game->map.available_exit)
+		m_error_with_tab("La sortie est inacessible :/", game);
+	if (game->map.available_steaks != game->map.steak_nb)
+		m_error_with_tab("Il n'y a pas de chemins pour \
+			recuperer tous les steaks :/", game);
 }

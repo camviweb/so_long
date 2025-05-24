@@ -21,6 +21,7 @@ int	close_win(t_game *game)
 	mlx_destroy_image(game->mlx, game->exit.img);
 	mlx_destroy_image(game->mlx, game->bg.img);
 	mlx_destroy_image(game->mlx, game->yw.img);
+	mlx_destroy_image(game->mlx, game->img.img);
 	free_tile(game);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);

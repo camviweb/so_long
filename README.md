@@ -1,4 +1,4 @@
-# Projet en cours 🎮
+# Projet valide 🎮
 ![validation](./so_long.png)
 
 ## Description
